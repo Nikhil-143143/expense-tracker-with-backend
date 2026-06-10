@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Expense Tracker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <section class="top-panel">
+      <div>
+        <p class="eyebrow">Personal Budget</p>
+        <h1>Expense Tracker</h1>
+        <p class="subtitle">Track daily spending, filter by category, and see your totals instantly.</p>
+      </div>
+      <div class="total-box">
+        <span>Total Spent</span>
+        <strong id="totalAmount">Rs. 0</strong>
+      </div>
+    </section>
+
+    <section class="summary-grid" aria-label="Expense summary">
+      <article class="summary-item">
+        <span>Entries</span>
+        <strong id="entryCount">0</strong>
+      </article>
+      <article class="summary-item">
+        <span>Highest</span>
+        <strong id="highestExpense">Rs. 0</strong>
+      </article>
+      <article class="summary-item">
+        <span>Average</span>
+        <strong id="averageExpense">Rs. 0</strong>
+      </article>
+    </section>
+
+    <section class="workspace">
+      <form id="expenseForm" class="expense-form">
+        <h2>Add Expense</h2>
+
+        <label>
+          Title
+          <input type="text" id="title" placeholder="Example: Coffee" maxlength="100" required>
+        </label>
+
+        <label>
+          Amount
+          <input type="number" id="amount" min="0.01" step="0.01" placeholder="Example: 120" required>
+        </label>
+
+        <label>
+          Category
+          <select id="category" required>
+            <option value="">Choose category</option>
+            <option value="Food">Food</option>
+            <option value="Transport">Transport</option>
+            <option value="Shopping">Shopping</option>
+            <option value="Bills">Bills</option>
+            <option value="Health">Health</option>
+            <option value="Other">Other</option>
+          </select>
+        </label>
+
+        <label>
+          Date
+          <input type="date" id="expenseDate" required>
+        </label>
+
+        <label>
+          Note
+          <textarea id="note" rows="3" placeholder="Optional note" maxlength="255"></textarea>
+        </label>
+
+        <button type="submit">Add Expense</button>
+        <p id="message" class="message"></p>
+      </form>
+
+      <section class="expense-list-panel">
+        <div class="list-header">
+          <h2>Recent Expenses</h2>
+          <select id="filterCategory" aria-label="Filter by category">
+            <option value="All">All categories</option>
+            <option value="Food">Food</option>
+            <option value="Transport">Transport</option>
+            <option value="Shopping">Shopping</option>
+            <option value="Bills">Bills</option>
+            <option value="Health">Health</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+
+        <div id="expenseList" class="expense-list"></div>
+      </section>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
